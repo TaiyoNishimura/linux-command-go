@@ -8,7 +8,6 @@ import (
 	"unsafe"
 )
 
-// ターミナルのウィンドウサイズを取得
 func getTerminalWidth() int {
 	type winsize struct {
 		Row    uint16
@@ -24,7 +23,7 @@ func getTerminalWidth() int {
 		uintptr(unsafe.Pointer(ws)))
 
 	if int(ret) == -1 {
-		return 80 // デフォルト幅
+		return 80
 	}
 	return int(ws.Col)
 }
